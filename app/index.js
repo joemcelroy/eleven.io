@@ -1,4 +1,4 @@
-var Eleven, ElevenSchema, app, assets, express, mongoose, port, stylus, teams;
+var Eleven, ElevenSchema, app, assets, express, mongoUrl, mongoose, port, stylus, teams;
 
 express = require('express');
 
@@ -8,7 +8,9 @@ assets = require('connect-assets');
 
 mongoose = require('mongoose');
 
-mongoose.connect('localhost', 'eleven');
+mongoUrl = process.env.MONGOLAB_URI || 'localhost';
+
+mongoose.connect(mongoUrl, 'eleven');
 
 teams = {
   arsenal: {

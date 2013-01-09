@@ -3,7 +3,7 @@ stylus = require 'stylus'
 assets = require 'connect-assets'
 mongoose = require 'mongoose'
 
-mongoUrl = process.env.MONGOLAB_URI || 'localhost'
+mongoUrl = process.env.MONGOLAB_URI or 'localhost'
 mongoose.connect mongoUrl, 'eleven'
 
 teams = {
