@@ -10,7 +10,7 @@ mongoose = require('mongoose');
 
 mongoUrl = process.env.MONGOLAB_URI || 'localhost';
 
-mongoose.connect(mongoUrl, 'eleven');
+mongoose.connect(mongoUrl);
 
 teams = {
   arsenal: {

@@ -4,7 +4,7 @@ assets = require 'connect-assets'
 mongoose = require 'mongoose'
 
 mongoUrl = process.env.MONGOLAB_URI or 'localhost'
-mongoose.connect mongoUrl, 'eleven'
+mongoose.connect mongoUrl
 
 teams = {
   arsenal: {
