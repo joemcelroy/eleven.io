@@ -3,8 +3,8 @@ stylus = require 'stylus'
 assets = require 'connect-assets'
 mongoose = require 'mongoose'
 
-
-mongoose.connect 'localhost', 'eleven'
+mongoUrl = process.env.MONGOLAB_URI || 'localhost'
+mongoose.connect mongoUrl, 'eleven'
 
 teams = {
   arsenal: {
