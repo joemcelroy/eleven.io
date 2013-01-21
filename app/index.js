@@ -1,10 +1,8 @@
-var Eleven, ElevenSchema, app, assets, express, mongoUrl, mongoose, port, stylus, teams;
+var Eleven, ElevenSchema, app, express, mongoUrl, mongoose, port, stylus, teams;
 
 express = require('express');
 
 stylus = require('stylus');
-
-assets = require('connect-assets');
 
 mongoose = require('mongoose');
 
@@ -31,8 +29,6 @@ ElevenSchema = mongoose.Schema({
 Eleven = mongoose.model('Eleven', ElevenSchema);
 
 app = express();
-
-app.use(assets());
 
 app.use(express.static(process.cwd() + '/public'));
 

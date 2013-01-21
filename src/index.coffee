@@ -1,6 +1,5 @@
 express = require 'express'
 stylus = require 'stylus'
-assets = require 'connect-assets'
 mongoose = require 'mongoose'
 
 mongoUrl = process.env.MONGOLAB_URI or 'localhost'
@@ -28,8 +27,6 @@ Eleven = mongoose.model 'Eleven', ElevenSchema;
 
 
 app = express()
-# Add Connect Assets
-app.use assets()
 # Set the public folder as static assets
 app.use express.static(process.cwd() + '/public')
 

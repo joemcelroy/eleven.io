@@ -2,47 +2,46 @@ extends layout
 block content
   
   header
-    nav
-      ul
-        li.brand
-          a 11
-        li.team
-          a Eleven
-        li
-          a.share S
-    div
-      form
-        input(type='search', autofocus='true', placeholder='Search for players')
-        span M
-        select
-          option(value='four42') 442
-          option(value='four33') 433 
-          option(value='five32') 532
-          option(value='four231') 4231
-          option(value='four24') 424
-          option(value='three52') 352
-        span
+    div#brand
+      a 11
+
+    form
+      input(type='search', autofocus='true', placeholder='Search for players')
+      a.share share
+      
+      
+  select
+    option(value='four42') 442
+    option(value='four33') 433 
+    option(value='five32') 532
+    option(value='four231') 4231
+    option(value='four24') 424
+    option(value='three52') 352
+  span
     
   section.p
     div.pitch
-    hr
-    ul.corners
-      li
-        span.dummy
-        span.circle
-      li
-        span.dummy
-        span.circle
-      li
-        span.dummy
-        span.circle
-      li
-        span.dummy
-        span.circle
-    
-    span.goal
+      hr
+      ul.corners
+        li
+          span.dummy
+          span.circle
+        li
+          span.dummy
+          span.circle
+        li
+          span.dummy
+          span.circle
+        li
+          span.dummy
+          span.circle
+      span.goal
+      
     article
       ul
+      
+  footer
+    a(href='https://twitter.com/elevenio', target="_blank")t
     
   script(type='text/javascript')
   
@@ -60,3 +59,4 @@ block content
         app.pitchView = new App.PitchView()
 
         app.pitchView.render()
+        
