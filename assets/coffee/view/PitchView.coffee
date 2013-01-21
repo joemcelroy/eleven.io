@@ -64,18 +64,14 @@ class App.PitchView extends Backbone.View
     
     size = @elevenModel._size(players)
     
-    if size < 3
+    if size < 1
     
       $("body").append """
     
-      <div class="blank step#{size+1}">
-        <span>i</span>
-        <span>i</span>
-        <span>i</span>
-        <span>i</span>
-        <span>2. Delete, drag and swap</span>
-        <span>3. Formations and share your team</span>
-        <span>1. Start with your goalie</span>
+      <div class="blank">
+      <h1>Search and share your starting eleven for 2012/13.</h1>
+      <h2>From Premiership to Bundesliga, add, delete, drag & swap players. Who would you sign this January transfer window?</h2>
+      <a href="#" class="close">x</a>
       </div>
     
       """

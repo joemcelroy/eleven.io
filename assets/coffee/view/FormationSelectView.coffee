@@ -1,6 +1,6 @@
 class App.FormationSelectView extends Backbone.View
 
-  el:"header select"
+  el:"select"
   
   events:
     "change": "changeEvent"

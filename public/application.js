@@ -214,7 +214,7 @@
 
     __extends(FormationSelectView, _super);
 
-    FormationSelectView.prototype.el = "header select";
+    FormationSelectView.prototype.el = "select";
 
     FormationSelectView.prototype.events = {
       "change": "changeEvent"
@@ -319,8 +319,8 @@
       var size;
       $("body .blank").remove();
       size = this.elevenModel._size(players);
-      if (size < 3) {
-        return $("body").append("\n  <div class=\"blank step" + (size + 1) + "\">\n    <span>i</span>\n    <span>i</span>\n    <span>i</span>\n    <span>i</span>\n    <span>2. Delete, drag and swap</span>\n    <span>3. Formations and share your team</span>\n    <span>1. Start with your goalie</span>\n  </div>\n");
+      if (size < 1) {
+        return $("body").append("\n  <div class=\"blank\">\n  <h1>Search and share your starting eleven for 2012/13.</h1>\n  <h2>From Premiership to Bundesliga, add, delete, drag & swap players. Who would you sign this January transfer window?</h2>\n  <a href=\"#\" class=\"close\">x</a>\n  </div>\n");
       }
     };
 
@@ -522,7 +522,7 @@
 
     ShareActionView.prototype.shareOverlayTemplate = "<div class=\"pop share\" style=\"display: block;\">\n<span class=\"close\"></span>\n<h2>Share your team</h2>\n<input type=\"text\" value=\"<%= shareUrl %>\" autofocus>\n</div>";
 
-    ShareActionView.prototype.el = "nav li a.share";
+    ShareActionView.prototype.el = "header form a.share";
 
     ShareActionView.prototype.events = {
       "click": "clickEvent"

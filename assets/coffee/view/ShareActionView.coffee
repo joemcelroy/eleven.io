@@ -8,7 +8,7 @@ class App.ShareActionView extends Backbone.View
     </div>
   """
 
-  el:"nav li a.share"
+  el:"header form a.share"
   
   events:
     "click": "clickEvent"
