@@ -98,7 +98,7 @@ class App.PitchView extends Backbone.View
       html += _.template @template, {
         player: @playersCollection.get(playerId)
         className: className
-        playerNumber: i
+        playerNumber: i+1
       }    
     
     @$el.html html

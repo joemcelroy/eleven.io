@@ -338,7 +338,7 @@
         html += _.template(this.template, {
           player: this.playersCollection.get(playerId),
           className: className,
-          playerNumber: i
+          playerNumber: i + 1
         });
       }
       this.$el.html(html);
