@@ -15,12 +15,23 @@ class App.SearchInputView extends Backbone.View
     e.preventDefault()
     
   bind: ->
+    
+    @elevenModel = app.elevenModel
+    @elevenModel.on "change change:players", @hideSearch
+    
     @autocompleteView = new App.SearchAutocompleteView {
       parent:@
     }
     @autocompleteView.$el.appendTo("body")
     $("form").submit (e) ->
       e.preventDefault()
+      
+  hideSearch: =>
+    if @elevenModel.playersSize() is 11
+      @$el.addClass "hide"
+    else
+      @$el.removeClass "hide"
+    
     
   getSearchValue: ->
     @$el.val()

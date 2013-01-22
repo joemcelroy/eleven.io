@@ -13,6 +13,9 @@ class App.Eleven extends Backbone.Model
       typeof player isnt "undefined"
     
     _.size definedPlayers
+    
+  playersSize: ->
+    @_size( @get("players") )
   
   updatePlayer:(id) ->
     players = @get "players"

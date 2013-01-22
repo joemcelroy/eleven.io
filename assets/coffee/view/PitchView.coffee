@@ -69,9 +69,9 @@ class App.PitchView extends Backbone.View
       $("body").append """
     
       <div class="blank">
-      <h1>Search and share your starting eleven for 2012/13.</h1>
-      <h2>From Premiership to Bundesliga, add, delete, drag & swap players. Who would you sign this January transfer window?</h2>
-      <a href="#" class="close">x</a>
+        <h1>Search and share your starting eleven for 2012/13.</h1>
+        <h2>From Premiership to Bundesliga, add, delete, drag & swap players. Who would you sign this January transfer window?</h2>
+        <a href="#" class="close">x</a>
       </div>
     
       """

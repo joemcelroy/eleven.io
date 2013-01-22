@@ -23,13 +23,13 @@ class App.ShareActionView extends Backbone.View
     @elevenModel.on "change change:players", @showButton
     $("body").on "click", ".pop.share .close", @hideShareOverlay
     
-    if location.href.indexOf("?share") != -1
+    if location.href.indexOf("#share") != -1
       @showShareOverlay()
     
   showShareOverlay: ->
     
     overlay = _.template @shareOverlayTemplate, {
-      shareUrl: location.href.replace("?share", "")
+      shareUrl: location.href.replace("#share", "")
     }
     
     $("body").append overlay
@@ -37,18 +37,19 @@ class App.ShareActionView extends Backbone.View
     
   hideShareOverlay: =>
     $("div.pop.share").remove()
+    location.href = location.href.replace("#share", "#")
     
   showButton: =>
-    if @elevenModel._size(@elevenModel.get("players")) is 11
-      @$el.addClass "enable"
+    if @elevenModel.playersSize() is 11
+      @$el.addClass "show"
       @$el.focus()
     else
-      @$el.removeClass "enable"
+      @$el.removeClass "show"
     
   clickEvent:(e) =>
     e.preventDefault()
     @elevenModel.save null,
       success: (model, response) ->
-        location.href = "/" + response.item._id + "?share"
+        location.href = "/" + response.item._id + "#share"
     
     

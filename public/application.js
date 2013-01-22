@@ -87,6 +87,10 @@
       return _.size(definedPlayers);
     };
 
+    Eleven.prototype.playersSize = function() {
+      return this._size(this.get("players"));
+    };
+
     Eleven.prototype.updatePlayer = function(id) {
       var nextSpot, players, pos;
       players = this.get("players");
@@ -320,7 +324,7 @@
       $("body .blank").remove();
       size = this.elevenModel._size(players);
       if (size < 1) {
-        return $("body").append("\n  <div class=\"blank\">\n  <h1>Search and share your starting eleven for 2012/13.</h1>\n  <h2>From Premiership to Bundesliga, add, delete, drag & swap players. Who would you sign this January transfer window?</h2>\n  <a href=\"#\" class=\"close\">x</a>\n  </div>\n");
+        return $("body").append("\n  <div class=\"blank\">\n    <h1>Search and share your starting eleven for 2012/13.</h1>\n    <h2>From Premiership to Bundesliga, add, delete, drag & swap players. Who would you sign this January transfer window?</h2>\n    <a href=\"#\" class=\"close\">x</a>\n  </div>\n");
       }
     };
 
@@ -483,6 +487,7 @@
     };
 
     function SearchInputView(settings) {
+      this.hideSearch = __bind(this.hideSearch, this);
       _.extend(this, settings);
       this.bind();
       SearchInputView.__super__.constructor.apply(this, arguments);
@@ -494,6 +499,8 @@
     };
 
     SearchInputView.prototype.bind = function() {
+      this.elevenModel = app.elevenModel;
+      this.elevenModel.on("change change:players", this.hideSearch);
       this.autocompleteView = new App.SearchAutocompleteView({
         parent: this
       });
@@ -501,6 +508,14 @@
       return $("form").submit(function(e) {
         return e.preventDefault();
       });
+    };
+
+    SearchInputView.prototype.hideSearch = function() {
+      if (this.elevenModel.playersSize() === 11) {
+        return this.$el.addClass("hide");
+      } else {
+        return this.$el.removeClass("hide");
+      }
     };
 
     SearchInputView.prototype.getSearchValue = function() {
@@ -543,7 +558,7 @@
       this.elevenModel = app.elevenModel;
       this.elevenModel.on("change change:players", this.showButton);
       $("body").on("click", ".pop.share .close", this.hideShareOverlay);
-      if (location.href.indexOf("?share") !== -1) {
+      if (location.href.indexOf("#share") !== -1) {
         return this.showShareOverlay();
       }
     };
@@ -551,21 +566,22 @@
     ShareActionView.prototype.showShareOverlay = function() {
       var overlay;
       overlay = _.template(this.shareOverlayTemplate, {
-        shareUrl: location.href.replace("?share", "")
+        shareUrl: location.href.replace("#share", "")
       });
       return $("body").append(overlay);
     };
 
     ShareActionView.prototype.hideShareOverlay = function() {
-      return $("div.pop.share").remove();
+      $("div.pop.share").remove();
+      return location.href = location.href.replace("#share", "#");
     };
 
     ShareActionView.prototype.showButton = function() {
-      if (this.elevenModel._size(this.elevenModel.get("players")) === 11) {
-        this.$el.addClass("enable");
+      if (this.elevenModel.playersSize() === 11) {
+        this.$el.addClass("show");
         return this.$el.focus();
       } else {
-        return this.$el.removeClass("enable");
+        return this.$el.removeClass("show");
       }
     };
 
@@ -573,7 +589,7 @@
       e.preventDefault();
       return this.elevenModel.save(null, {
         success: function(model, response) {
-          return location.href = "/" + response.item._id + "?share";
+          return location.href = "/" + response.item._id + "#share";
         }
       });
     };
