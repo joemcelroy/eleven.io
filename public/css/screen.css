@@ -146,13 +146,13 @@ position: relative}
 	-webkit-transition: all .2s linear
 }
 
-.indrag .four42 li,
-.indrag .four33 li,
-.indrag .four24 li,
-.indrag .five32 li,
-.indrag .four231 li,
-.indrag .three52 li {
-	-webkit-transition:none
+.inDrag .four42 li,
+.inDrag .four33 li,
+.inDrag .four24 li,
+.inDrag .five32 li,
+.inDrag .four231 li,
+.inDrag .three52 li {
+	-webkit-transition: none
 }
 
 article span {
