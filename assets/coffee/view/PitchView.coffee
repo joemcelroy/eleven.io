@@ -45,6 +45,10 @@ class App.PitchView extends Backbone.View
     
     @$("li.active").draggable {
       revert: true
+      start: ->
+        $("body").addClass("inDrag")
+      stop: ->
+        $("body").removeClass("inDrag")
     }
     @$("li").droppable {
         hoverClass: "dragover",
@@ -53,6 +57,8 @@ class App.PitchView extends Backbone.View
           newPos = target.index()
           playerId = payload.draggable.data("id")
           @movePlayer playerId, newPos
+          $("body").removeClass("inDrag")
+        
     }
     
   changeFormation: =>

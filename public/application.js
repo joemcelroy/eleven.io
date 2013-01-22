@@ -301,7 +301,13 @@
     PitchView.prototype.makeDraggable = function() {
       var _this = this;
       this.$("li.active").draggable({
-        revert: true
+        revert: true,
+        start: function() {
+          return $("body").addClass("inDrag");
+        },
+        stop: function() {
+          return $("body").removeClass("inDrag");
+        }
       });
       return this.$("li").droppable({
         hoverClass: "dragover",
@@ -310,7 +316,8 @@
           target = $(e.target);
           newPos = target.index();
           playerId = payload.draggable.data("id");
-          return _this.movePlayer(playerId, newPos);
+          _this.movePlayer(playerId, newPos);
+          return $("body").removeClass("inDrag");
         }
       });
     };
