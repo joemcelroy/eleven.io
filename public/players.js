@@ -3424,7 +3424,7 @@ window.playersData = [
 
 { id: 1712, team: 58, player: "Lacina Traoré", position: "Forward"},
 
-{ id: 1713, team: 58, player: "Samuel Eto'o", position: "Forward"},
+{ id: 1713, team: 58, player: "Samuel Eto'o", position: "Forward"}
 
 ]
 
