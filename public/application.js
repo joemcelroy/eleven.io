@@ -372,7 +372,7 @@
 
     SearchAutocompleteView.prototype.template = "<li data-id=\"<%= player.id %>\" class=\"<%= className %>\"><a href=\"#\"><strong> <%= player.get(\"name\") %> </strong> <em> <%= team.get(\"name\") %> </em> </a> </li>";
 
-    SearchAutocompleteView.prototype.noResultsTemplate = "<li class=\"noResults\">No players found. Are you sure you're a football fan?</li>";
+    SearchAutocompleteView.prototype.noResultsTemplate = "<li class=\"noResults\">No players found. Are you looking for Fu Kin No Wan?</li>";
 
     SearchAutocompleteView.prototype.events = {
       "click": "clickEvent"
