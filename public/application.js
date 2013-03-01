@@ -331,7 +331,7 @@
       $("body .blank").remove();
       size = this.elevenModel._size(players);
       if (size < 1) {
-        return $("body").append("\n  <div class=\"blank\">\n    <h1>Search and share your starting eleven for 2012/13.</h1>\n    <h2>From Premiership to Bundesliga, add, delete, drag & swap players. Who would you sign this January transfer window?</h2>\n    <a href=\"#\" class=\"close\">x</a>\n  </div>\n");
+        return $("body").append("\n  <div class=\"blank\">\n    <h1>Who would be in your starting eleven?</h1>\n    <h2>From Barclays Premiership to Bundesliga, search, share, drag & delete players.</h2>\n    <a href=\"#\" class=\"close\">x</a>\n  </div>\n");
       }
     };
 
