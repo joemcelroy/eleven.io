@@ -1,4 +1,4 @@
-window.PLAYERS = [
+window.playersData = [
 
 { id: 1, team: 1, name: "Wojciech Szczesny", position: "Goalkeeper"},
 
