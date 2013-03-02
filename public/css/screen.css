@@ -644,7 +644,7 @@ border-left: 0;
 border-right: 0;
 left: auto}
 
-pitch::after {
+.pitch::after {
 position: absolute;
 content: "";
 width: 100%;
