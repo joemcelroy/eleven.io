@@ -114,6 +114,10 @@ a {color: #fff}
 
 section {
 background: #3c9a04;
+background: -webkit-linear-gradient(top, #3c9a04 50%, #4c9e0b 50%);
+background: -moz-linear-gradient(left, #3c9a04 50%, #4c9e0b 50%);
+background: linear-gradient(left, #3c9a04 50%, #4c9e0b 50%);
+background-size: 100% 10.1%;
 width: 100%;
 position: relative;
 height: 100%;
@@ -752,7 +756,7 @@ display: inline-block;
 -moz-box-sizing: border-box;
 -webkit-box-sizing: border-box;
 box-sizing: border-box;
-padding: 0 0 0 26px;
+padding: 0 0 0 25px;
 width: 80%;
 height: 26px;
 width: 26px;
@@ -1335,6 +1339,10 @@ left: 50%}
 article strong {top: 60%}
 
 section {
+background: -webkit-linear-gradient(left, #3c9a04 50%, #4c9e0b 50%);
+background: -moz-linear-gradient(left, #3c9a04 50%, #4c9e0b 50%);
+background: linear-gradient(left, #3c9a04 50%, #4c9e0b 50%);
+background-size: 10.1% 100%;
 height: auto;
 padding-bottom: 60%}
 
